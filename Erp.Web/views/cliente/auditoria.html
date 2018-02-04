@@ -1,0 +1,29 @@
+﻿<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-user"></i> Auditoria </h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Inclusão</th>
+                        <th>Alteração</th>
+                        <th>Exclusão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ vm.Cliente.Inclusao }}</td>
+                        <td>{{ vm.Cliente.Alteracao }}</td>
+                        <td>{{ vm.Cliente.Exclusao }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="vm.fechar()" type="button" class="btn btn-white"><span class="fa fa-times-circle-o"></span>  Fechar</button>
+    </div>
+</div>

@@ -1,0 +1,246 @@
+﻿
+<div class="modal-header">
+    <h4 class="modal-title">Cadastro - Cliente </h4>
+    <small class="font-bold"></small>
+</div>
+<div class="modal-body">
+   
+    <div class="row">
+        <form id="frm" name="frm" ng-submit="submitForm(frm.$valid)" novalidate>
+
+            <div class="row" ng-if="vm.msgalert.length>0">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Atenção</strong> {{ vm.msgalert }}
+                    </div>
+                </div>
+            </div>
+            <uib-tabset>
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span class="glyphicon glyphicon-file"></span> Dados Principais
+                    </uib-tab-heading>
+
+                    <div class="panel-body">
+                        <input type="hidden" id="IdCliente" name="IdCliente" ng-model="vm.Cliente.IdCliente" />
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Tipo * </label>
+                                    <select name="Tipo" id="Tipo" class="form-control" ng-change="vm.Tipo" required ng-model="vm.Tipo">
+                                        <option ng-repeat="item in vm.TipoPessoa" value="{{item.Id}}">{{item.Nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="PF" ng-if="vm.Tipo=='PF'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Dados Pessoa Física
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-8">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Nome * </label>
+                                            <input type="text" id="Nome" name="Nome" class="form-control" required ng-model="vm.Cliente.Nome" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Data de Nascimento  </label>
+                                            <input type="text" id="DataNascimento" name="DataNascimento" class="form-control"  ui-date-mask ng-model="vm.Cliente.DataNascimento" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">CPF </label>
+                                            <input type="text" id="Cpf" name="Cpf" class="form-control" ng-blur="vm.validarCpfCpnj()" ui-br-cpf-mask ng-model="vm.Cliente.CPF" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>RG  </label>
+                                            <input type="text" id="RG" name="RG" class="form-control" ng-model="vm.Cliente.RG" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Mãe  </label>
+                                            <input type="text" id="Mae" name="Mae" class="form-control" ng-model="vm.Cliente.Mae" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="PJ" ng-if="vm.Tipo=='PJ'">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Dados Pessoa Juridica
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-8">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Fantasia *  </label>
+                                            <input type="text" id="Fantasia" name="Fantasia" class="form-control" required ng-model="vm.Cliente.Fantasia" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="control-label">Razão Social  </label>
+                                            <input type="text" id="RazaoSocial" name="RazaoSocial" class="form-control" ng-model="vm.Cliente.RazaoSocial" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Cnpj </label>
+                                            <input type="text" name="Cnpj" class="form-control" ui-br-cnpj-mask ng-model="vm.Cliente.CNPJ" ng-blur="vm.validarCpfCpnj()" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Inscrição Estadual </label>
+                                            <input type="text" id="Ie" name="Ie" class="form-control" ng-model="vm.Cliente.Ie" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="Contatos">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Contatos
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Telefone 1* </label>
+                                            <input type="text" id="Telefone1" name="Telefone1" ui-br-phone-number class="form-control" required ng-model="vm.Cliente.Telefone1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Telefone 2   </label>
+                                            <input type="text" id="Telefone2" name="Telefone2" ui-br-phone-number class="form-control" ng-model="vm.Cliente.Telefone2" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Email  </label>
+                                            <input type="text" id="Email" name="Email" class="form-control" ng-model="vm.Cliente.Email" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Observações
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="2" id="Observacoes" name="Observacoes" ng-model="vm.Cliente.Observacoes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </uib-tab>
+
+                <uib-tab>
+                    <uib-tab-heading>
+                        <span class="glyphicon glyphicon-map-marker"></span> Endereço
+                    </uib-tab-heading>
+
+                    <div class="panel-body">
+                        <div class="row" id="Endereco">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Endereço Principal
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Cep *  </label><!-- ng-blur="vm.buscarcep()" -->
+                                            <input type="text" id="Cep" name="Cep" class="form-control" required ui-br-cep-mask ng-model="vm.Cliente.Cep" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Estado *  </label>
+                                            <select ng-model='vm.Cliente.IdEstado' class="form-control" required ng-options='option.IdEstado as option.Nome for option in vm.estados' ng-change="vm.carregacidadesporestado()">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Cidade *  </label>
+                                            <select ng-model='vm.Cliente.IdCidade' class="form-control" required ng-options='option.IdCidade as option.Nome for option in vm.cidades'>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Bairro *  </label>
+                                            <input type="text" id="Bairro" name="Bairro" class="form-control" required ng-model="vm.Cliente.Bairro" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Logradouro *  </label>
+                                            <input type="text" id="Logradouro" name="Logradouro" class="form-control" required ng-model="vm.Cliente.Logradouro" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group" show-errors>
+                                            <label class="control-label">Nº *  </label>
+                                            <input type="text" id="Numero" name="Numero" class="form-control" required ng-model="vm.Cliente.Numero" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label>Complemento  </label>
+                                            <input type="text" id="Complemento" name="Complemento" class="form-control" ng-model="vm.Cliente.Complemento" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Referência </label>
+                                            <input type="text" id="Referencia" name="Referencia" class="form-control" ng-model="vm.Cliente.Referencia" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+
+            </uib-tabset>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-white" ng-click="vm.fechar()"><span class="fa fa-times-circle-o"></span> Fechar</button>
+    <button type="button" class="btn btn-primary pull-right" ng-click="vm.salvar()"><span class="fa fa-save"></span> Salvar</button>
+</div>
+
