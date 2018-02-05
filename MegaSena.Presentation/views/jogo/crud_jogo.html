@@ -1,5 +1,5 @@
 ﻿ <div class="modal-header">
-    <h4 class="modal-title">Jogador </h4>
+    <h4 class="modal-title">Jogo - {{ vm.sorteio.Nome }} </h4>
     <small class="font-bold"></small>
 </div>
 <div class="modal-body">
@@ -13,20 +13,48 @@
         <div class="row">
                 <form id="frm" name="frm" ng-submit="submitForm(frm.$valid)" novalidate>
                     
-                    <input type="hidden" id="IdJogador" name="IdJogador" ng-model="vm.jogador.IdJogador" />
+                    <input type="hidden" id="IdJogador" name="IdJogador" ng-model="vm.jogo.IdJogo" />
+                    <input type="hidden" id="IdSorteio" name="IdSorteio" ng-model="vm.jogo.IdSorteio" />
 
                     <div class="col-md-8">
                         <div class="form-group" show-errors>
-                            <label class="control-label">Nome * </label>
-                            <input type="text" id="Nome" name="Nome" class="form-control" required ng-model="vm.jogador.Nome" />
+                            <label class="control-label">Dezenas * Exemplo: 1,2,3 </label>
+                            <input type="text" id="Dezenas" name="Dezenas" class="form-control" required ng-model="vm.jogo.Dezenas" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label">Jogador * </label>
+                            <input type="text" id="Nome" name="Nome" class="form-control"  ng-model="vm.Nome" />
                         </div>
                     </div>
 
                     <div class="col-md-4">
-                        <div class="form-group" show-errors>
-                            <label class="control-label">CPF * </label>
-                            <input type="text" id="CPF" name="CPF" class="form-control" required ng-model="vm.jogador.CPF" />
+                        <div class="input-group" >
+                            <label>CPF * </label>
+                            <input type="text" name="CPF" ng-model="vm.CPF" class="form-control">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" style="margin-top: 23px;" ng-click="vm.addItem()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </span>
                         </div>
+                    </div>
+
+                    <div class="col-md-12" >
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Jogador </th>
+                                <th>CPF </th>
+                                <th>Ações </th>
+                            </tr>
+                            <tr ng-repeat="item in itens">
+                                <td>{{ item.Nome }} </td>
+                                <td>{{ item.CPF }} </td>
+                                <td><button type="button" class="btn btn-xs btn-danger" ng-click="vm.removeItem($index)"><span class="glyphicon glyphicon-remove"></span> Excluir </button></td>
+                            </tr>
+                        </table>
                     </div>
                 </form>
         </div>

@@ -4,6 +4,7 @@ using MegaSena.Domain;
 using MegaSena.Domain.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -74,10 +75,16 @@ namespace Erp.Api.Controllers
             try
             {
                 var listaJogador = new List<Jogador>();
+
+                if (model.Jogadores.Count == 0)
+                    throw new Exception("Adicione no mínimo um jogador");
+
                 foreach(var item in model.Jogadores)
                     listaJogador.Add(new Jogador(item.Nome, item.CPF));
 
-                _jogoService.SalvarJogo(new Jogo(_sorteioService.ObterSorteio(model.IdSorteio),model.Numeros,"Aposta", listaJogador));
+                List<int> res = model.Dezenas.Split(',').Select(Int32.Parse).ToList();
+
+                _jogoService.SalvarJogo(new Jogo(_sorteioService.ObterSorteio(model.IdSorteio),res, "Aposta", listaJogador));
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception ex)

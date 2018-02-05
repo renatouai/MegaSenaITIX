@@ -6,15 +6,7 @@
                     <h5> Cadastro - Sorteio </h5>
                 </div>
                 <div class="ibox-content">
-                    <div class="row">
-                        <div class="md-6" >
-                            <div class="form-group pull-right" style="margin-left:20px;">
-                                <a ui-sref="addparcelas({id:0, tipo: vm.redirecionamento})" class="btn btn-primary">
-                                    <i class="fa fa-file-o"></i>
-                                    <span class="bold">  Novo Jogo</span>
-                                </a>
-                            </div>
-                        </div>
+                    <!--<div class="row">
 
                         <div class="md-6">
                             <div class="form-group pull-right"  style="margin-left:20px;">
@@ -24,7 +16,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
 
                         <div class="row">
@@ -34,16 +26,18 @@
                                     <td title="'Código'" style="width:10%" filter="{ IdSorteio: 'number'}" sortable="'IdSorteio'">{{ item.IdSorteio }}</td>
                                     <td title="'Nome'" style="width:30%" filter="{ Nome: 'text'}" sortable="'Nome'"> {{ item.Nome }}</td>
                                     <td title="'Jogos'" style="width:5%" filter="{ Jogos: 'text'}" sortable="'Jogos'"> {{ item.NumeroJogos }}</td>
-                                    <td title="'Data Criação'" style="width:10%" filter="{ Data: 'text'}" sortable="'Data'"> {{ item.DataCriacao | date: 'dd/MM/yyyy'  }}</td>
+                                    <td title="'Sorteadas'" style="width:5%" filter="{ Sorteadas: 'text'}" sortable="'Jogos'"> {{ item.DezenasSorteadas }}</td>
+                                     <td title="'Data Criação'" style="width:10%" filter="{ Data: 'text'}" sortable="'Data'"> {{ item.DataCriacao | date: 'dd/MM/yyyy'  }}</td>
                                     <td title="'Situação'" style="width:10%" filter="{ Situacao: 'text'}" sortable="'Situacao'">  {{ item.Situacao }}</td>
 
-
-                                    <td title="'Ações'" style="width:18%">
+                                    <td title="'Ações'" style="width:40%">
                                         <a ng-if="item.Situacao=='Aberto'" ng-click="vm.editarparcela(vm.redirecionamento,item.IdParcela)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Editar"> <i class="fa fa-edit"></i> Sorteio </a>
                                         <!--<a ng-if="item.Situacao!='Excluido'" ng-click="vm.excluir(item.IdFinanceiro, item.IdParcela)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Excluir"> <i class="fa fa-trash"></i> Excluir </a>-->
-                                        <a ng-click="vm.visualizar(item)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="glyphicon glyphicon-zoom-in"></i> Visualizar </a>
+                                        <a ng-click="vm.createjogo(item.IdSorteio)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Visualizar"> <i class="fa fa-plus"></i> Adicionar Jogo </a>
+                                        <a ng-click="vm.gerarJogos(item.IdSorteio)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Jogos"> <i class="fa fa-gamepad"></i> Gerar Jogos </a>
+                                        <a ng-click="vm.realizarSorteio(item.IdSorteio)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Realizar Sorteio"> <i class="fa fa-money"></i> Realizar Sorteio </a>
+                                       <a ng-click="vm.visualizar(item)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="glyphicon glyphicon-zoom-in"></i> Visualizar </a>
                                     </td>
-
                                 </tr>
                             </table>
                         </div>

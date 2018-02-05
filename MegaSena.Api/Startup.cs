@@ -66,6 +66,7 @@ namespace Erp.Api
 
             container.Register<ISorteioService, SorteioService>();
             container.Register<IJogadorService, JogadorService>();
+            container.Register<IJogoService, JogoService>();
         }
 
     }

@@ -64,6 +64,10 @@ namespace MegaSena.Domain
                 throw new Exception("O jogo possui números repetidos ");
             else
                 this.Numeros = numeros;
+
+            if (numeros.Count < 6)
+                throw new Exception("O jogo deve possuir no mínimo 6 Dezenas");
+
         }
 
         public void SetSorteio(Sorteio sorteio)

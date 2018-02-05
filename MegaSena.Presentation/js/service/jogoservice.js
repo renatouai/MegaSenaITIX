@@ -21,20 +21,20 @@
 
         //Implementação das funções
         function obter(id) {
-            return $http.get(servicebase.urlApi() + "/cadastro/obterJogo/?id=" + id, header);
+            return $http.get(servicebase.urlApi() + "/jogo/obter/?id=" + id, header);
         }
 
         function salvar(obj) {
-            return $http.post(servicebase.urlApi() + "/cadastro/salvarJogo", obj, header);
+            return $http.post(servicebase.urlApi() + "/jogo/salvar", obj, header);
         }
 
         function listar() {
-            return $http.get(servicebase.urlApi() + "/cadastro/listarJogo", header);
+            return $http.get(servicebase.urlApi() + "/jogo/listar", header);
         }
 
 
         function excluir(id) {
-            return $http.get(servicebase.urlApi() + "/cadastro/excluirJogo/?id=" + id, header);
+            return $http.get(servicebase.urlApi() + "/jogo/excluir/?id=" + id, header);
         }
     }
 })();

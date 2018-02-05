@@ -23,48 +23,6 @@ namespace Erp.Infra.Services
             Context.SaveChanges();
         }
 
-        #region [EmMemoria]
-        //public ICollection<Jogador> ListarGanhadores(int idsorteio)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public ICollection<Sorteio> ListarSorteios()
-        //{
-        //    var listasorteio = new List<Sorteio>();
-
-        //    Sorteio _sorteio;
-        //    List<Jogo> _jogos;
-        //    List<Jogador> _jogador;
-
-        //    for (int x = 1; x <= 50; x++)
-        //    {
-        //        _sorteio = new Sorteio("Mega Sena Sorteio" + x, TipoJogo.MegaSena);
-        //        _sorteio.IdSorteio = x;
-        //        _jogos = new List<Jogo>();
-        //        for (int y = 1; y <= 20; y++)
-        //        {
-        //            _jogador = new List<Jogador>() { new Jogador("Jogador " + y, "05982100676") };
-        //            _jogos.Add(new Jogo(_sorteio, _sorteio.MegaSena(), SituacaoJogo.Aposta, _jogador));
-        //        }
-        //        _sorteio.SetJogos(_jogos);
-        //        _sorteio.SorteioMegaSena(_sorteio.MegaSena());
-        //        listasorteio.Add(_sorteio);
-        //    }
-        //    return listasorteio;
-        //}
-
-        //public Sorteio ObterSorteioPorId(int idsorteio)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Sorteio Salvar(Sorteio sorteio)
-        //{
-        //    throw new NotImplementedException();
-        //}
-        #endregion
-
         public ICollection<Sorteio> ListarSorteios()
         {
             return Context.Sorteio.Include(x=>x.Jogos).ToList();
@@ -85,6 +43,58 @@ namespace Erp.Infra.Services
             {
                 Context.Sorteio.Add(sorteio);
             }
+            Context.SaveChanges();
+        }
+
+        public void RealizarSorteioMegaSena(int idsorteio)
+        {
+            var sorteio = Context.Sorteio.Include(x=>x.Jogos).First(x=>x.IdSorteio==idsorteio);
+
+            var jogos = new List<Jogo>();
+            var numerosSorteados = new List<int>() { 59, 10, 35, 39, 25, 18 }; // sorteio.MegaSena();  //   
+            
+            // gero numeros do sorteio
+
+            int nacertos = 0;
+            foreach (var item in sorteio.Jogos)
+            {
+
+                List<int> res = item.Dezenas.Split(',').Select(Int32.Parse).ToList();
+                item.SetNumeros(res);
+                nacertos = item.Numeros.Intersect(numerosSorteados).Count();
+                if (nacertos == 6)
+                {
+                    item.SetSituacao("Ganhou");
+                    item.SetTipoPremio("Mega");
+                    item.SetValorPremio(20000);
+                    nacertos++;
+                }
+                else if (nacertos == 5)
+                {
+                    item.SetSituacao("Ganhou");
+                    item.SetTipoPremio("Quina");
+                    item.SetValorPremio(1000);
+                    nacertos++;
+                }
+                else if (nacertos == 4)
+                {
+                    item.SetSituacao("Ganhou");
+                    item.SetTipoPremio("Quadra");
+                    item.SetValorPremio(10);
+                }
+                else
+                {
+                    item.SetSituacao("Perdeu");
+                    item.SetValorPremio(0);
+                }
+            }
+
+            sorteio.SetNumeroGanhadores(nacertos); // Atualiza o numero de ganhadores
+            sorteio.SetSituacao("Sorteado"); // Atualiza situação do Sorteio
+            sorteio.SetDezenasSorteadas(string.Join(",", numerosSorteados));
+
+
+            Context.Entry(sorteio).State = EntityState.Modified;
             Context.SaveChanges();
         }
     }

@@ -27,9 +27,11 @@ namespace Erp.Test.Unitarios
             while (cont < 6)
             {
                 num = random.Next(1, 60);
-                if(!ListNumeros.Contains(num))
+                if (!ListNumeros.Contains(num))
+                {
                     ListNumeros.Add(num);
-                    cont++;  
+                    cont++;
+                }   
             }
 
             // jogadores 

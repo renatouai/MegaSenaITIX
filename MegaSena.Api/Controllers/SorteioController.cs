@@ -17,9 +17,11 @@ namespace Erp.Api.Controllers
     public class SorteioController : ApiController
     {
         private readonly ISorteioService _sorteioService;
-        public SorteioController(ISorteioService sorteioService)
+        private readonly IJogoService _jogoService;
+        public SorteioController(ISorteioService sorteioService, IJogoService jogoService)
         {
             this._sorteioService = sorteioService;
+            this._jogoService = jogoService;
         }
 
         [HttpGet]
@@ -43,6 +45,7 @@ namespace Erp.Api.Controllers
                     _sorteio.NumeroGanhadores = item.NumeroGanhadores;
                     _sorteio.Situacao = item.Situacao;
                     _sorteio.NumeroJogos = item.Jogos.Count;
+                    _sorteio.DezenasSorteadas = item.DezenasSorteadas;
 
                     var _jogos = new List<JogoModel>();
                     foreach (var j in item.Jogos)
@@ -62,6 +65,68 @@ namespace Erp.Api.Controllers
                     _sorteios.Add(_sorteio);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, _sorteios);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("obter")]
+        public HttpResponseMessage ObterSorteio(int id)
+        {
+            try
+            {
+                var res = _sorteioService.ObterSorteio(id);
+                if (res == null)
+                    throw new Exception("Não foi possível recuperar dados do sorteio");
+
+                var _sorteio = new SorteioModel();
+                _sorteio.Nome = res.Nome;
+                _sorteio.IdSorteio = res.IdSorteio;
+
+                return Request.CreateResponse(HttpStatusCode.OK, _sorteio);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("gerarJogos")]
+        public HttpResponseMessage GerarJogos(int id)
+        {
+            try
+            {
+                var listaJogador = new List<Jogador>();
+                listaJogador.Add(new Jogador("Reanto Ayres de Oliveira", "05982100676"));
+
+                var sorteio = _sorteioService.ObterSorteio(id);
+
+                for (int i = 0; i <= 50; i++)
+                {
+                    _jogoService.SalvarJogo(new Jogo(sorteio, sorteio.MegaSena(), "Aposta", listaJogador));
+                }
+                return Request.CreateResponse(HttpStatusCode.OK);
+
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("realizarSorteio")]
+        public HttpResponseMessage RealizarSorteio(int id)
+        {
+            try
+            {
+                // aqui poderia abrir um leque de opções megasena,lotomania
+                _sorteioService.RealizarSorteioMegaSena(id);
+                return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception ex)
             {

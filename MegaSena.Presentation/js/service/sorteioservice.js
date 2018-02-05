@@ -15,13 +15,15 @@
             salvar: salvar,
             excluir: excluir,
             listar: listar,
+            gerarJogos: gerarJogos,
+            realizarSorteio: realizarSorteio,
             obter: obter
         }
         return service;
 
         //Implementação das funções
         function obter(id) {
-            return $http.get(servicebase.urlApi() + "/sorteio/obterporid/?id=" + id, header);
+            return $http.get(servicebase.urlApi() + "/sorteio/obter/?id=" + id, header);
         }
 
         function salvar(obj) {
@@ -31,10 +33,17 @@
         function listar() {
             return $http.get(servicebase.urlApi() + "/sorteio/listar", header);
         }
-
-
+        
         function excluir(id) {
             return $http.get(servicebase.urlApi() + "/sorteio/excluir/?id=" + id, header);
+        }
+
+        function gerarJogos(id) {
+            return $http.get(servicebase.urlApi() + "/sorteio/gerarJogos/?id=" + id, header);
+        }
+
+        function realizarSorteio(id) {
+            return $http.get(servicebase.urlApi() + "/sorteio/realizarSorteio/?id=" + id, header);
         }
     }
 })();

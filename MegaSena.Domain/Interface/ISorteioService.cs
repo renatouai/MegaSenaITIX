@@ -8,5 +8,8 @@ namespace MegaSena.Domain.Interface
         Sorteio ObterSorteio(int idsorteio);
         void Excluir(Sorteio sorteio);
         ICollection<Sorteio> ListarSorteios();
+
+        void RealizarSorteioMegaSena(int idsorteio);
+
     }
 }

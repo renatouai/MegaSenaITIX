@@ -19,7 +19,9 @@ namespace MegaSena.Domain
         public string Situacao { get; private set; }
         public ICollection<Jogo> Jogos { get; private set; }
         public int NumeroGanhadores { get; private set; }
-        
+        public string DezenasSorteadas { get; private set; }
+
+
         public Sorteio() {}
 
         public Sorteio( string nome,string tipo)
@@ -43,6 +45,11 @@ namespace MegaSena.Domain
         public void SetNumeroGanhadores(int n)
         {
             this.NumeroGanhadores = n;
+        }
+
+        public void SetDezenasSorteadas(string n)
+        {
+            this.DezenasSorteadas = n;
         }
 
         public void SetSituacao(string situacao)
@@ -70,8 +77,11 @@ namespace MegaSena.Domain
             {
                 n = random.Next(1, 60);
                 if (!listNumeros.Contains(n))
+                {
                     listNumeros.Add(n);
-                x++;
+                    x++;
+                }
+                   
             }
             return listNumeros;
         }

@@ -21,5 +21,6 @@ namespace Erp.Api.Model
 
         public int NumeroGanhadores { get; set; }
         public int NumeroJogos { get; set; }
+        public string DezenasSorteadas { get; set; }
     }
 }

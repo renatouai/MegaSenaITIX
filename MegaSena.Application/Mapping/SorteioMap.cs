@@ -15,6 +15,7 @@ namespace MegaSena.Infra.Mapping
 
             this.Property(t => t.DataCriacao).IsRequired();
             this.Property(t => t.DataSorteio).IsRequired();
+            this.Property(t => t.DezenasSorteadas).IsOptional();
 
             this.Property(t => t.Tipo).IsRequired();
             this.Property(t => t.Situacao).IsRequired();

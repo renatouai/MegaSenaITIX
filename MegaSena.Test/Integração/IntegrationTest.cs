@@ -108,6 +108,7 @@ namespace Erp.Test.Unitarios
             }
             sorteio.SetNumeroGanhadores(nacertos); // Atualiza o numero de ganhadores
             sorteio.SetSituacao("Sorteado"); // Atualiza situação do Sorteio
+            sorteio.SetDezenasSorteadas("1,2,3,4,5,6");
 
             _sorteioService.Salvar(sorteio);
         }
