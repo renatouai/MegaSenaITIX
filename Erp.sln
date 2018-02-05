@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Application", "Meg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Domain", "MegaSena.Domain\MegaSena.Domain.csproj", "{2FBF3A41-AD1E-4A00-9A02-80B0C98A8033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Test", "Erp.Test\MegaSena.Test.csproj", "{736E4159-457C-4D7C-85BF-41A553D48950}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Test", "MegaSena.Test\MegaSena.Test.csproj", "{736E4159-457C-4D7C-85BF-41A553D48950}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Presentation", "MegaSena.Presentation\MegaSena.Presentation.csproj", "{9F55515E-35D8-4A46-8578-0CAB5BA62673}"
 EndProject
