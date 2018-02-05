@@ -51,7 +51,7 @@ namespace Erp.Infra.Services
             var sorteio = Context.Sorteio.Include(x=>x.Jogos).First(x=>x.IdSorteio==idsorteio);
 
             var jogos = new List<Jogo>();
-            var numerosSorteados = new List<int>() { 59, 10, 35, 39, 25, 18 }; // sorteio.MegaSena();  //   
+            var numerosSorteados = sorteio.MegaSena();  /// new List<int>() { 59, 10, 35, 39, 25, 18 }; // sorteio.MegaSena();  //   
             
             // gero numeros do sorteio
 
