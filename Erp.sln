@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Api", "Erp.Api\MegaSena.Api.csproj", "{2E2C228B-60A1-4BF8-AC2A-E884B8F9918D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Api", "MegaSena.Api\MegaSena.Api.csproj", "{2E2C228B-60A1-4BF8-AC2A-E884B8F9918D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Application", "Erp.Infra\MegaSena.Application.csproj", "{BDD4BD0B-FF44-441B-9982-DDE14FFBD722}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Application", "MegaSena.Application\MegaSena.Application.csproj", "{BDD4BD0B-FF44-441B-9982-DDE14FFBD722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Domain", "Erp.Domain\MegaSena.Domain.csproj", "{2FBF3A41-AD1E-4A00-9A02-80B0C98A8033}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Domain", "MegaSena.Domain\MegaSena.Domain.csproj", "{2FBF3A41-AD1E-4A00-9A02-80B0C98A8033}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Test", "Erp.Test\MegaSena.Test.csproj", "{736E4159-457C-4D7C-85BF-41A553D48950}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Presentation", "Erp.Web\MegaSena.Presentation.csproj", "{9F55515E-35D8-4A46-8578-0CAB5BA62673}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaSena.Presentation", "MegaSena.Presentation\MegaSena.Presentation.csproj", "{9F55515E-35D8-4A46-8578-0CAB5BA62673}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

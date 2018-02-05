@@ -136,11 +136,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Erp.Domain\MegaSena.Domain.csproj">
+    <ProjectReference Include="..\MegaSena.Domain\MegaSena.Domain.csproj">
       <Project>{2fbf3a41-ad1e-4a00-9a02-80b0c98a8033}</Project>
       <Name>MegaSena.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Erp.Infra\MegaSena.Application.csproj">
+    <ProjectReference Include="..\MegaSena.Application\MegaSena.Application.csproj">
       <Project>{bdd4bd0b-ff44-441b-9982-dde14ffbd722}</Project>
       <Name>MegaSena.Application</Name>
     </ProjectReference>

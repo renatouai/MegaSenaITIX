@@ -129,7 +129,7 @@
     <Compile Include="Services\SorteioService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Erp.Domain\MegaSena.Domain.csproj">
+    <ProjectReference Include="..\MegaSena.Domain\MegaSena.Domain.csproj">
       <Project>{2fbf3a41-ad1e-4a00-9a02-80b0c98a8033}</Project>
       <Name>MegaSena.Domain</Name>
     </ProjectReference>

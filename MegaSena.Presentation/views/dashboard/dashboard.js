@@ -20,7 +20,6 @@
         }).error(function (res) {
             vm.msgalert = res.Message;
         });
-
     }
 
     
