@@ -15,7 +15,7 @@
         'LocalStorageModule',
         'blockUI',
         'brasil.filters',
-        'ui.utils.masks',
+       // 'ui.utils.masks',
 
         'app.dashboard',
         'app.sorteio',
