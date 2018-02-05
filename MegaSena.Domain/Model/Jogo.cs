@@ -6,7 +6,7 @@ namespace MegaSena.Domain
 {
     public class Jogo
     {
-       public int IdJogo { get; private set; } 
+       public int IdJogo { get;  set; } 
        public DateTime Data { get; private set; }
        public int IdSorteio { get; private set; }
        public Sorteio Sorteio { get; private set; }

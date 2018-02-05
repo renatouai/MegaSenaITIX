@@ -17,8 +17,8 @@
         'brasil.filters',
         'ui.utils.masks',
 
-        'app.dashboard'
-
+        'app.dashboard',
+        'app.sorteio'
 
 
         /*,

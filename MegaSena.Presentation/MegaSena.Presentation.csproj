@@ -3142,8 +3142,6 @@
     <Content Include="js\translations.js" />
     <Content Include="js\ui-router\angular-ui-router.js" />
     <Content Include="js\ui-router\angular-ui-router.min.js" />
-    <Content Include="views\shared\produtoVenda.js" />
-    <Content Include="views\shared\produtVenda.html" />
     <Content Include="views\cliente\auditoria.html" />
     <Content Include="views\cliente\auditoria.js" />
     <Content Include="views\cliente\cliente.js" />
@@ -3168,8 +3166,13 @@
     <Content Include="views\dashboard\dashboard.js" />
     <Content Include="views\dashboard\dashboard.module.js" />
     <Content Include="views\login\login.js" />
-    <Content Include="views\shared\pessoa.html" />
-    <Content Include="views\shared\pessoa.js" />
+    <Content Include="views\sorteio\visualizasorteio.html" />
+    <Content Include="views\sorteio\visualizasorteio.js" />
+    <Content Include="views\sorteio\crud_sorteio.html" />
+    <Content Include="views\sorteio\crud_sorteio.js" />
+    <Content Include="views\sorteio\sorteio.html" />
+    <Content Include="views\sorteio\sorteio.js" />
+    <Content Include="views\sorteio\sorteio.module.js" />
     <Content Include="views\wizard\step_one.html" />
     <Content Include="views\wizard\step_three.html" />
     <Content Include="views\wizard\step_two.html" />
@@ -3184,6 +3187,8 @@
   <ItemGroup>
     <Folder Include="js\angular\i18n\ngLocale\" />
     <Folder Include="js\plugins\dataTables\datatables\extensions\Editor\examples\simple\echo\" />
+    <Folder Include="views\jogo\" />
+    <Folder Include="views\shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

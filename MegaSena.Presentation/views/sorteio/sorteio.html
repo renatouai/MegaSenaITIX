@@ -40,7 +40,7 @@
                                     <td title="'Ações'" style="width:18%">
                                         <a ng-if="item.Situacao=='Aberto'" ng-click="vm.editarparcela(vm.redirecionamento,item.IdParcela)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Editar"> <i class="fa fa-edit"></i> Sorteio </a>
                                         <a ng-if="item.Situacao!='Excluido'" ng-click="vm.excluir(item.IdFinanceiro, item.IdParcela)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Excluir"> <i class="fa fa-trash"></i> Excluir </a>
-                                        <a ng-click="vm.visualizar(item.IdFinanceiro, item.IdParcela)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="glyphicon glyphicon-zoom-in"></i> Visualizar </a>
+                                        <a ng-click="vm.visualizar(item)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="glyphicon glyphicon-zoom-in"></i> Visualizar </a>
                                     </td>
 
                                 </tr>

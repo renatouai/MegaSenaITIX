@@ -85,11 +85,11 @@ namespace MegaSena.Domain
             {
                nacertos = item.Numeros.Intersect(numerosSorteados).Count();
                if(nacertos==6)
-                    sortudos.Add(new Ganhador(item, TipoPremio.Mega, 1000));
+                    sortudos.Add(new Ganhador(item, "Mega", 1000)); // valor do prêmio pode ser calculado
                 else if(nacertos==5)
-                    sortudos.Add(new Ganhador(item, TipoPremio.Quina, 1000));
+                    sortudos.Add(new Ganhador(item, "Quina", 1000));
                 else if(nacertos==4)
-                    sortudos.Add(new Ganhador(item, TipoPremio.Quadra, 1000));
+                    sortudos.Add(new Ganhador(item, "Quadra", 1000));
             }
 
             this.NumeroGanhadores = sortudos.Count(); // Atualiza o numero de ganhadores

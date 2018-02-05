@@ -41,6 +41,7 @@ namespace Erp.Api.Controllers
                     _sorteio.Situacao = item.Situacao;
 
                     var _jogos = new List<JogoModel>();
+
                     foreach (var j in item.Jogos)
                     {
                         _jogos.Add(new JogoModel()
@@ -59,7 +60,9 @@ namespace Erp.Api.Controllers
                         {
                             IdJogo = k.IdJogo,
                             IdJGanhador = k.IdJGanhador,
+                            TipoPremio = k.TipoPremio,
                             ValorPremio = k.ValorPremio
+
                         });
                     }
 

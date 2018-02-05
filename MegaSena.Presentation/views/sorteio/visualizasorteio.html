@@ -1,0 +1,82 @@
+﻿ <div class="modal-header">
+    <h4 class="modal-title">Visualziar - Sorteio - {{ vm.sorteio.IdSorteio  }}</h4>
+    <small class="font-bold"></small>
+</div>
+ <div class="modal-body">
+
+     <div class="row">
+
+         <table class="table table-hover">
+             <tbody>
+                 <tr>
+                     <th style="width:10%">Nome:</th>
+                     <td>{{ vm.sorteio.Nome  }}</td>
+                 </tr>
+                 <tr>
+                     <th style="width:20%">Data Criação:</th>
+                     <td>{{ vm.sorteio.DataCriacao | date: 'dd/MM/yyyy'   }}</td>
+                 </tr>
+                 <tr>
+                     <th style="width:20%">Ganahdores:</th>
+                     <td>{{ vm.sorteio.NumeroGanhadores  }}  </td>
+                 </tr>
+
+                 <tr>
+                     <th style="width:20%">Situação:</th>
+                     <td>{{ vm.sorteio.Situacao  }}  </td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+
+
+     <uib-tabset>
+         <uib-tab>
+             <uib-tab-heading>
+                 <span class="fa fa-gamepad"></span> Jogos
+             </uib-tab-heading>
+
+             <div class="panel-body">
+                
+
+                 <div class="row">
+                     <table class="table table-striped" ng-table="vm.jogos" show-filter="true">
+                         <tr ng-repeat="item in $data">
+                              <td title="'Data'" filter="{ Data: 'text'}" sortable="'Data'">{{ item.Data | date: 'dd/MM/yyyy hh:mm'  }} </td>
+                             <td title="'Numeros'" filter="{ Numeros: 'text'}" sortable="'Numeros'">{{ item.Numeros  }} </td>
+                         </tr>
+                     </table>
+                 </div>
+
+             </div>
+         </uib-tab>
+
+         <uib-tab>
+             <uib-tab-heading>
+                 <span class="fa fa-users"></span> Ganhadores
+             </uib-tab-heading>
+
+             <div class="panel-body">
+
+
+                 <div class="row">
+                     <table class="table table-striped" ng-table="vm.Ganhadores" show-filter="true">
+                         <tr ng-repeat="item in $data">
+                             <td title="'TipoPremio'" filter="{ TipoPremio: 'text'}" sortable="'TipoPremio'">{{ item.TipoPremio  }} </td>
+                             <td title="'Numeros'" filter="{ Numeros: 'text'}" sortable="'Numeros'">{{ item.Numeros  }} </td>
+                         </tr>
+                     </table>
+                 </div>
+
+             </div>
+
+
+         </uib-tab>
+
+     </uib-tabset>
+    
+ </div>
+     <div class="modal-footer">
+         <button type="button" class="btn btn-white" ng-click="vm.fechar()"><span class="fa fa-times-circle-o"></span> Fechar</button>
+         <button type="button" class="btn btn-primary pull-right" ng-click="vm.salvar()"><span class="fa fa-save"></span> Salvar</button>
+     </div>
