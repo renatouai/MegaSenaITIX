@@ -71,8 +71,31 @@ namespace Erp.Api.Controllers
         {
             try
             {
-                 _jogadorService.SalvarJogador(new Jogador(model.Nome,model.CPF));
+                _jogadorService.SalvarJogador(new Jogador(model.Nome, model.CPF));
                 return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("obter")]
+        public HttpResponseMessage ObterJogador(int id)
+        {
+            try
+            {
+                var jogador =  _jogadorService.ObterJogadorPorId(id);
+                if (jogador == null)
+                    throw new Exception("Jogador não encontrado ");
+
+                var model = new JogadorModel();
+
+                model.Nome = jogador.Nome;
+                model.CPF = jogador.CPF;
+                
+                return Request.CreateResponse(HttpStatusCode.OK,model);
             }
             catch (Exception ex)
             {

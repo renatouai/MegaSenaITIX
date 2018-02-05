@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Erp.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
@@ -16,10 +17,13 @@ namespace MegaSena.Domain
        public string Dezenas { get; private set; }
         
        public string Situacao { get; private set; }
+       public decimal ValorPremio { get; private set; }
+       public string TipoPremio { get; private set; }
+
 
        public virtual ICollection<Jogador> Jogadores { get; private set; }  // em caso de bolão
-       
-       public Jogo() {  }
+
+        public Jogo() {  }
 
         public Jogo(Sorteio sorteio, List<int> numeros, string situacao, ICollection<Jogador> jogadores)
         {
@@ -40,6 +44,16 @@ namespace MegaSena.Domain
         public void SetSituacao(string situacao)
         {
             this.Situacao = situacao;
+        }
+
+        public void SetValorPremio(decimal valorPremio)
+        {
+            this.ValorPremio = valorPremio;
+        }
+
+        public void SetTipoPremio(string tipoPremio)
+        {
+            this.TipoPremio = tipoPremio;
         }
 
         public void SetNumeros(List<int> numeros)

@@ -90,7 +90,6 @@
     <Compile Include="Interface\IApostaService.cs" />
     <Compile Include="Interface\InterfaceGeneric.cs" />
     <Compile Include="Interface\ISorteioService.cs" />
-    <Compile Include="Model\Ganhador.cs" />
     <Compile Include="Model\Jogador.cs" />
     <Compile Include="Model\Jogo.cs" />
     <Compile Include="Model\TipoPremio.cs" />

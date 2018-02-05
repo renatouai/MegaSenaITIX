@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 
 namespace Erp.Api.Controllers
 {
@@ -39,36 +42,23 @@ namespace Erp.Api.Controllers
                     _sorteio.DataCriacao = item.DataCriacao;
                     _sorteio.NumeroGanhadores = item.NumeroGanhadores;
                     _sorteio.Situacao = item.Situacao;
+                    _sorteio.NumeroJogos = item.Jogos.Count;
 
                     var _jogos = new List<JogoModel>();
-
                     foreach (var j in item.Jogos)
                     {
                         _jogos.Add(new JogoModel()
                         {
                             IdJogo = j.IdJogo,
                             NomeSorteio = item.Nome,
-                            Numeros = j.Numeros,
-                            Data = j.Data
+                            Dezenas = j.Dezenas,
+                            Data = j.Data,
+                            Situacao = j.Situacao,
+                            TipoPremio = j.TipoPremio
                         });
                     }
-
-                    var _ganhador = new List<GanhadorModel>();
-                    foreach (var k in item.Ganhadores)
-                    {
-                        _ganhador.Add(new GanhadorModel()
-                        {
-                            IdJogo = k.IdJogo,
-                            IdJGanhador = k.IdJGanhador,
-                            TipoPremio = k.TipoPremio,
-                            ValorPremio = k.ValorPremio
-
-                        });
-                    }
-
-                    _sorteio.Ganhadores = _ganhador;
+                    _sorteio.Ganhadores = _jogos.Where(x => x.Situacao == "Ganhou").ToList(); // já esta em mémoria
                     _sorteio.Jogos = _jogos;
-
                     _sorteios.Add(_sorteio);
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, _sorteios);

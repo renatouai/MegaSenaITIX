@@ -3165,6 +3165,11 @@
     <Content Include="views\dashboard\dashboard.html" />
     <Content Include="views\dashboard\dashboard.js" />
     <Content Include="views\dashboard\dashboard.module.js" />
+    <Content Include="views\jogo\crud_jogo.html" />
+    <Content Include="views\jogo\crud_jogo.js" />
+    <Content Include="views\jogo\jogo.html" />
+    <Content Include="views\jogo\jogo.js" />
+    <Content Include="views\jogo\jogo.module.js" />
     <Content Include="views\login\login.js" />
     <Content Include="views\jogador\crud_jogador.html" />
     <Content Include="views\jogador\crud_jogador.js" />
@@ -3192,7 +3197,6 @@
   <ItemGroup>
     <Folder Include="js\angular\i18n\ngLocale\" />
     <Folder Include="js\plugins\dataTables\datatables\extensions\Editor\examples\simple\echo\" />
-    <Folder Include="views\jogo\" />
     <Folder Include="views\shared\" />
   </ItemGroup>
   <PropertyGroup>

@@ -11,7 +11,6 @@ namespace MegaSena.Application
         public DbSet<Sorteio> Sorteio { get; set; }
         public DbSet<Jogador> Jogador { get; set; }
         public DbSet<Jogo> Jogo { get; set; }
-        public DbSet<Ganhador> Ganhador { get; set; }
 
         static ErpContext()
         {
@@ -32,7 +31,6 @@ namespace MegaSena.Application
             modelBuilder.Configurations.Add(new SorteioMap());
             modelBuilder.Configurations.Add(new JogoMap());
             modelBuilder.Configurations.Add(new JogadorMap());
-            modelBuilder.Configurations.Add(new GanhadorMap());
         }
     }
 }

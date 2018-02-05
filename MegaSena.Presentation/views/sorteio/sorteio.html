@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>{{vm.titulo}} </h5>
+                    <h5> Cadastro - Sorteio </h5>
                 </div>
                 <div class="ibox-content">
                     <div class="row">
@@ -31,15 +31,16 @@
                             <table class="table table-striped" ng-table="vm.dados" show-filter="true">
                                 <tr ng-repeat="item in $data">
 
-                                    <td title="'Código'" style="width:10%" filter="{ IdSorteio: 'text'}" sortable="'IdSorteio'">{{ item.IdSorteio }}</td>
+                                    <td title="'Código'" style="width:10%" filter="{ IdSorteio: 'number'}" sortable="'IdSorteio'">{{ item.IdSorteio }}</td>
                                     <td title="'Nome'" style="width:30%" filter="{ Nome: 'text'}" sortable="'Nome'"> {{ item.Nome }}</td>
+                                    <td title="'Jogos'" style="width:5%" filter="{ Jogos: 'text'}" sortable="'Jogos'"> {{ item.NumeroJogos }}</td>
                                     <td title="'Data Criação'" style="width:10%" filter="{ Data: 'text'}" sortable="'Data'"> {{ item.DataCriacao | date: 'dd/MM/yyyy'  }}</td>
                                     <td title="'Situação'" style="width:10%" filter="{ Situacao: 'text'}" sortable="'Situacao'">  {{ item.Situacao }}</td>
 
 
                                     <td title="'Ações'" style="width:18%">
                                         <a ng-if="item.Situacao=='Aberto'" ng-click="vm.editarparcela(vm.redirecionamento,item.IdParcela)" class="btn btn-xs btn-primary" data-toggle="tooltip" title="Editar"> <i class="fa fa-edit"></i> Sorteio </a>
-                                        <a ng-if="item.Situacao!='Excluido'" ng-click="vm.excluir(item.IdFinanceiro, item.IdParcela)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Excluir"> <i class="fa fa-trash"></i> Excluir </a>
+                                        <!--<a ng-if="item.Situacao!='Excluido'" ng-click="vm.excluir(item.IdFinanceiro, item.IdParcela)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Excluir"> <i class="fa fa-trash"></i> Excluir </a>-->
                                         <a ng-click="vm.visualizar(item)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="glyphicon glyphicon-zoom-in"></i> Visualizar </a>
                                     </td>
 

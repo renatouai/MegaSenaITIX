@@ -124,7 +124,6 @@
     <Compile Include="Context\ErpContext.cs" />
     <Compile Include="Mapping\JogoMap.cs" />
     <Compile Include="Mapping\JogadorMap.cs" />
-    <Compile Include="Mapping\GanhadorMap.cs" />
     <Compile Include="Mapping\SorteioMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\JogoService.cs" />

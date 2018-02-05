@@ -67,12 +67,12 @@ namespace Erp.Infra.Services
 
         public ICollection<Sorteio> ListarSorteios()
         {
-            return Context.Sorteio.Include(x => x.Jogos).Include(x => x.Ganhadores).ToList();
+            return Context.Sorteio.Include(x=>x.Jogos).ToList();
         }
 
         public Sorteio ObterSorteio(int idsorteio)
         {
-            return Context.Sorteio.First(x=>x.IdSorteio==idsorteio);
+            return Context.Sorteio.Include(x=>x.Jogos).First(x=>x.IdSorteio==idsorteio);
         }
 
         public void Salvar(Sorteio sorteio)

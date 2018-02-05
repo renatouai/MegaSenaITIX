@@ -26,12 +26,12 @@ namespace Erp.Infra.Services
 
         public ICollection<Jogo> ListarJogos()
         {
-            return Context.Jogo.ToList();
+            return Context.Jogo.Include(x=>x.Sorteio).ToList();
         }
 
         public Jogo ObterJogo(int id)
         {
-            return Context.Jogo.Find(id);
+            return Context.Jogo.Include(x=>x.Sorteio).FirstOrDefault(x=>x.IdJogo == id);
         }
 
         public void SalvarJogo(Jogo jogo)

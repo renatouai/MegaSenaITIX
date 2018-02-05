@@ -1,0 +1,42 @@
+﻿<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5> Cadastro - Jogador </h5>
+                </div>
+                <div class="ibox-content">
+                    <!--<div class="row">
+                        <div class="md-6" >
+                            <div class="form-group pull-right" style="margin-left:20px;">
+                                <a ng-click="vm.create(0)" class="btn btn-primary">
+                                    <i class="fa fa-plus"></i>
+                                    <span class="bold">  Novo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="row">
+                        <table class="table table-striped" ng-table="vm.dados" show-filter="true">
+                            <tr ng-repeat="item in $data">
+
+                                <td title="'Código'" style="width:10%" filter="{ IdJogador: 'text'}" sortable="'IdJogador'">{{ item.IdJogo }}</td>
+                                <td title="'Nome'" style="width:30%" filter="{ Nome: 'text'}" sortable="'Nome'"> {{ item.Data | date: 'dd/MM/yyyy'   }}</td>
+                                <td title="'Dezenas'" style="width:30%" filter="{ Dezenas: 'text'}" sortable="'Dezenas'"> {{ item.Dezenas }}</td>
+                                <td title="'Sorteio'" style="width:10%" filter="{ Sorteio: 'text'}" sortable="'Sorteio'"> {{ item.Sorteio  }}</td>
+                                <td title="'Situação'" style="width:10%" filter="{ Situacao: 'text'}" sortable="'Situacao'"> {{ item.Situacao  }}</td>
+
+                                <td title="'Ações'" style="width:18%">
+                                    <a ng-if="item.Situacao!='Excluido'" ng-click="vm.excluir(item.IdJogo)" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Excluir"> <i class="fa fa-trash"></i> Excluir </a>
+                                    <a ng-click="vm.create(item.IdJogo)" class="btn btn-xs btn-info" data-toggle="tooltip" title="Visualizar"> <i class="fa fa-edit"></i> Editar </a>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>

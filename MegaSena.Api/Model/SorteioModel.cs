@@ -17,8 +17,9 @@ namespace Erp.Api.Model
 
         public string Situacao { get;  set; }
         public ICollection<JogoModel> Jogos { get;  set; }
-        public ICollection<GanhadorModel> Ganhadores { get;  set; }
+        public List<JogoModel> Ganhadores { get; set; }
 
         public int NumeroGanhadores { get; set; }
+        public int NumeroJogos { get; set; }
     }
 }

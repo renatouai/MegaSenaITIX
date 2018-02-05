@@ -20,7 +20,6 @@ namespace MegaSena.Infra.Mapping
             this.Property(t => t.Situacao).IsRequired();
 
             this.HasMany(x => x.Jogos);
-            this.HasMany(x => x.Ganhadores);
 
         }
     }

@@ -382,7 +382,6 @@
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\SorteioController.cs" />
-    <Compile Include="Model\GanhadorModel.cs" />
     <Compile Include="Model\JogadorModel.cs" />
     <Compile Include="Model\JogoModel.cs" />
     <Compile Include="Model\SorteioModel.cs" />
