@@ -1,0 +1,37 @@
+﻿ <div class="modal-header">
+    <h4 class="modal-title">Jogador </h4>
+    <small class="font-bold"></small>
+</div>
+<div class="modal-body">
+        <div class="row" ng-if="vm.msgalert.length>0">
+            <div class="col-md-12">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Atenção</strong> {{ vm.msgalert }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <form id="frm" name="frm" ng-submit="submitForm(frm.$valid)" novalidate>
+                    
+                    <input type="hidden" id="IdJogador" name="IdJogador" ng-model="vm.jogador.IdJogador" />
+
+                    <div class="col-md-8">
+                        <div class="form-group" show-errors>
+                            <label class="control-label">Nome * </label>
+                            <input type="text" id="Nome" name="Nome" class="form-control" required ng-model="vm.jogador.Nome" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group" show-errors>
+                            <label class="control-label">CPF * </label>
+                            <input type="text" id="CPF" name="CPF" class="form-control" required ng-model="vm.jogador.CPF" />
+                        </div>
+                    </div>
+                </form>
+        </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-white" ng-click="vm.fechar()"><span class="fa fa-times-circle-o"></span> Fechar</button>
+    <button type="button" class="btn btn-primary pull-right" ng-click="vm.salvar()"><span class="fa fa-save"></span> Salvar</button>
+</div>

@@ -18,7 +18,8 @@
         'ui.utils.masks',
 
         'app.dashboard',
-        'app.sorteio'
+        'app.sorteio',
+        'app.jogador'
           
 
         /*,

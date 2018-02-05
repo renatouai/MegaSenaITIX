@@ -84,6 +84,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IJogoService.cs" />
     <Compile Include="Interface\IJogadorService.cs" />
     <Compile Include="Model\DomainValidationCommon.cs" />
     <Compile Include="Interface\IApostaService.cs" />

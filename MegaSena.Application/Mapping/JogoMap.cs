@@ -10,13 +10,14 @@ namespace MegaSena.Infra.Mapping
             this.HasKey(t => t.IdJogo);
 
             this.Property(t => t.Data).IsRequired();
+            this.Property(t => t.IdSorteio).IsRequired();
+
             this.Property(t => t.Situacao).IsRequired();
-         
-            this.HasRequired(t => t.Sorteio)
-                .WithMany()
-                .HasForeignKey(x=>x.IdSorteio);
+            this.Property(t => t.Dezenas).IsRequired();
 
            
+
+
         }
     }
 }

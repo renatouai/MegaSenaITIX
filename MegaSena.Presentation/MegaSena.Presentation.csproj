@@ -3166,6 +3166,11 @@
     <Content Include="views\dashboard\dashboard.js" />
     <Content Include="views\dashboard\dashboard.module.js" />
     <Content Include="views\login\login.js" />
+    <Content Include="views\jogador\crud_jogador.html" />
+    <Content Include="views\jogador\crud_jogador.js" />
+    <Content Include="views\jogador\jogador.html" />
+    <Content Include="views\jogador\jogador.js" />
+    <Content Include="views\jogador\jogador.module.js" />
     <Content Include="views\sorteio\visualizasorteio.html" />
     <Content Include="views\sorteio\visualizasorteio.js" />
     <Content Include="views\sorteio\crud_sorteio.html" />

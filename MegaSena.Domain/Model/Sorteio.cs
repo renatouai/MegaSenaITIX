@@ -15,11 +15,9 @@ namespace MegaSena.Domain
         public string Nome { get; private set; } // exemplo Sorteio Mega Sena da Virada 
         public DateTime DataCriacao { get; private set; }
         public DateTime DataSorteio { get; private set; }
-
-
-        [ScriptIgnore]
-        public TipoJogo Tipo { get; private set; }
         
+        public string Tipo { get; private set; }
+
         public string Situacao { get; private set; }
         public ICollection<Jogo> Jogos { get; private set; }
         public ICollection<Ganhador> Ganhadores { get; private set; }
@@ -28,7 +26,7 @@ namespace MegaSena.Domain
         
         public Sorteio() {}
 
-        public Sorteio( string nome,TipoJogo tipo)
+        public Sorteio( string nome,string tipo)
         {
             this.DataCriacao = DateTime.Now;
             this.DataSorteio = DateTime.Now.AddMonths(1);
@@ -51,7 +49,7 @@ namespace MegaSena.Domain
             this.Jogos = jogos;
         }
 
-        public void SetTipoJogo(TipoJogo tipo)
+        public void SetTipoJogo(string tipo)
         {
             this.Tipo = tipo;
         }

@@ -4,9 +4,9 @@ namespace MegaSena.Domain.Interface
 {
     public interface ISorteioService
     {
-        Sorteio Salvar(Sorteio sorteio);
-        Sorteio ObterSorteioPorId(int idsorteio);
+        void Salvar(Sorteio sorteio);
+        Sorteio ObterSorteio(int idsorteio);
+        void Excluir(Sorteio sorteio);
         ICollection<Sorteio> ListarSorteios();
-        ICollection<Jogador> ListarGanhadores(int idsorteio);
     }
 }

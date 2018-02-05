@@ -64,7 +64,8 @@ namespace Erp.Api
             container.Register<ErpContext>(Lifestyle.Scoped);
             container.Register(typeof(IUnitOfWork<>), typeof(UnitOfWork<>), Lifestyle.Scoped);
 
-           container.Register<ISorteioService, SorteioService>();
+            container.Register<ISorteioService, SorteioService>();
+            container.Register<IJogadorService, JogadorService>();
         }
 
     }

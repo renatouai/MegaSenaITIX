@@ -18,7 +18,7 @@ namespace Erp.Test.Unitarios
 
         public JogoTest()
         {
-            this.Sorteio = new Sorteio("Mega Sena Virada", TipoJogo.MegaSena);
+            this.Sorteio = new Sorteio("Mega Sena Virada", "MegaSena");
                         this.ListNumeros = new List<int>();
 
             int num = 0;
@@ -41,7 +41,7 @@ namespace Erp.Test.Unitarios
         [TestMethod]
         public void Deve_Criar_Um_Jogo()
         {
-            var jogo = new Jogo(Sorteio, ListNumeros, SituacaoJogo.Aposta, JogadoresBolao);
+            var jogo = new Jogo(Sorteio, ListNumeros, "Aposta", JogadoresBolao);
             Assert.IsNotNull(jogo);
         }
 
@@ -57,7 +57,7 @@ namespace Erp.Test.Unitarios
             _listanumeros.Add(2);
             _listanumeros.Add(2);
 
-            var jogo = new Jogo(Sorteio, _listanumeros, SituacaoJogo.Aposta, JogadoresBolao);
+            var jogo = new Jogo(Sorteio, _listanumeros, "Aposta", JogadoresBolao);
             Assert.Fail();
         }
 
@@ -65,7 +65,7 @@ namespace Erp.Test.Unitarios
         [ExpectedException(typeof(Exception))]
         public void Deve_Validar_Criar_Jogo_Sem_Numero_Aposta()
         {
-            var jogo = new Jogo(Sorteio, null, SituacaoJogo.Aposta, JogadoresBolao);
+            var jogo = new Jogo(Sorteio, null, "Aposta", JogadoresBolao);
             Assert.Fail();
         }
 
@@ -81,7 +81,7 @@ namespace Erp.Test.Unitarios
             _listanumeros.Add(5);
             _listanumeros.Add(6);
 
-            var jogo = new Jogo(null, _listanumeros, SituacaoJogo.Aposta, JogadoresBolao);
+            var jogo = new Jogo(null, _listanumeros, "Aposta", JogadoresBolao);
             Assert.Fail();
         }
 
@@ -99,7 +99,7 @@ namespace Erp.Test.Unitarios
             _listanumeros.Add(5);
             _listanumeros.Add(6);
 
-            var jogo = new Jogo(Sorteio, null, SituacaoJogo.Aposta,null);
+            var jogo = new Jogo(Sorteio, null, "Aposta",null);
             Assert.Fail();
         }
 

@@ -15,11 +15,6 @@
 
     function init() {
 
-        sorteioservice.listar().success(function (res) {
-            vm.dados = new NgTableParams({ sorting: { IdSorteio: "desc" } }, { dataset: res });  
-        }).error(function (res) {
-            vm.msgalert = res.Message;
-        });
     }
 
     

@@ -23,6 +23,11 @@ namespace MegaSena.Domain
             // quando a classe e muito grande costumo criar uma validate no final
         }
 
+        public void SetId(int id)
+        {
+            this.IdJogador = id;
+        }
+
         public void SetNome(string nome)
         {
             if (string.IsNullOrEmpty(nome))

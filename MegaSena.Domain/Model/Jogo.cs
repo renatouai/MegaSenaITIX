@@ -8,20 +8,20 @@ namespace MegaSena.Domain
     {
        public int IdJogo { get;  set; } 
        public DateTime Data { get; private set; }
+
        public int IdSorteio { get; private set; }
        public Sorteio Sorteio { get; private set; }
        
        public List<int> Numeros { get; private set; }
        public string Dezenas { get; private set; }
-
-        [ScriptIgnore]
-        public SituacaoJogo Situacao { get; private set; }
+        
+       public string Situacao { get; private set; }
 
        public virtual ICollection<Jogador> Jogadores { get; private set; }  // em caso de bolão
        
        public Jogo() {  }
 
-        public Jogo(Sorteio sorteio, List<int> numeros, SituacaoJogo situacao, ICollection<Jogador> jogadores)
+        public Jogo(Sorteio sorteio, List<int> numeros, string situacao, ICollection<Jogador> jogadores)
         {
             this.Data = DateTime.Now;
 
@@ -29,9 +29,15 @@ namespace MegaSena.Domain
             SetNumeros(numeros);
             SetJogadores(jogadores);
             SetSituacao(situacao);
+            SetDezenas(numeros);
         }
 
-        public void SetSituacao(SituacaoJogo situacao)
+        public void SetDezenas(List<int> numeros)
+        {
+            this.Dezenas = string.Join(",", numeros);
+        }
+
+        public void SetSituacao(string situacao)
         {
             this.Situacao = situacao;
         }

@@ -12,11 +12,16 @@ namespace MegaSena.Infra.Mapping
         public SorteioMap()
         {
             this.HasKey(t => t.IdSorteio);
+
             this.Property(t => t.DataCriacao).IsRequired();
             this.Property(t => t.DataSorteio).IsRequired();
 
             this.Property(t => t.Tipo).IsRequired();
             this.Property(t => t.Situacao).IsRequired();
+
+            this.HasMany(x => x.Jogos);
+            this.HasMany(x => x.Ganhadores);
+
         }
     }
 }

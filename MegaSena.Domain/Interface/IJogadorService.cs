@@ -8,10 +8,9 @@ namespace MegaSena.Domain.Interface
 {
     public interface IJogadorService
     {
-        Jogador SalvarJogador(Jogador jgoador);
+        void SalvarJogador(Jogador jogador);
         Jogador ObterJogadorPorId(int id);
+        Jogador Excluir(Jogador jogaodr);
         ICollection<Jogador> ListarJogadores();
-
-
     }
 }
