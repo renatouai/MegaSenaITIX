@@ -56,31 +56,34 @@ namespace Erp.Infra.Services
             // gero numeros do sorteio
 
             int nacertos = 0;
+            int contAcertadores = 0;
             foreach (var item in sorteio.Jogos)
             {
 
                 List<int> res = item.Dezenas.Split(',').Select(Int32.Parse).ToList();
                 item.SetNumeros(res);
                 nacertos = item.Numeros.Intersect(numerosSorteados).Count();
+
                 if (nacertos == 6)
                 {
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Mega");
                     item.SetValorPremio(20000);
-                    nacertos++;
+                    contAcertadores++;
                 }
                 else if (nacertos == 5)
                 {
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Quina");
                     item.SetValorPremio(1000);
-                    nacertos++;
+                    contAcertadores++;
                 }
                 else if (nacertos == 4)
                 {
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Quadra");
                     item.SetValorPremio(10);
+                    contAcertadores++;
                 }
                 else
                 {
@@ -89,7 +92,7 @@ namespace Erp.Infra.Services
                 }
             }
 
-            sorteio.SetNumeroGanhadores(nacertos); // Atualiza o numero de ganhadores
+            sorteio.SetNumeroGanhadores(contAcertadores); // Atualiza o numero de ganhadores
             sorteio.SetSituacao("Sorteado"); // Atualiza situação do Sorteio
             sorteio.SetDezenasSorteadas(string.Join(",", numerosSorteados));
 

@@ -24,10 +24,11 @@
                                 <tr ng-repeat="item in $data">
 
                                     <td title="'Código'" style="width:10%" filter="{ IdSorteio: 'number'}" sortable="'IdSorteio'">{{ item.IdSorteio }}</td>
-                                    <td title="'Nome'" style="width:30%" filter="{ Nome: 'text'}" sortable="'Nome'"> {{ item.Nome }}</td>
+                                    <td title="'Nome'" style="width:20%" filter="{ Nome: 'text'}" sortable="'Nome'"> {{ item.Nome }}</td>
                                     <td title="'Jogos'" style="width:5%" filter="{ Jogos: 'text'}" sortable="'Jogos'"> {{ item.NumeroJogos }}</td>
                                     <td title="'Sorteadas'" style="width:5%" filter="{ Sorteadas: 'text'}" sortable="'Jogos'"> {{ item.DezenasSorteadas }}</td>
                                      <td title="'Data Criação'" style="width:10%" filter="{ Data: 'text'}" sortable="'Data'"> {{ item.DataCriacao | date: 'dd/MM/yyyy'  }}</td>
+                                    <td title="'Ganhadores'" style="width:5%" filter="{ Ganhadores: 'text'}" sortable="'Ganhadores'">  {{ item.NumeroGanhadores }}</td>
                                     <td title="'Situação'" style="width:10%" filter="{ Situacao: 'text'}" sortable="'Situacao'">  {{ item.Situacao }}</td>
 
                                     <td title="'Ações'" style="width:40%">

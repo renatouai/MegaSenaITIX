@@ -86,7 +86,7 @@ namespace MegaSena.Domain
             return listNumeros;
         }
 
-        public List<Jogo> SorteioMegaSena(List<int> numerosSorteados)
+        public int SorteioMegaSena(List<int> numerosSorteados)
         {
             var jogos = new List<Jogo>();
 
@@ -94,6 +94,7 @@ namespace MegaSena.Domain
                 throw new Exception("Números sorteados inválidos");
 
             int nacertos = 0;
+            int contAcertadores = 0;;
             foreach(var item in this.Jogos)
             {
                nacertos = item.Numeros.Intersect(numerosSorteados).Count();
@@ -102,26 +103,27 @@ namespace MegaSena.Domain
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Mega");
                     item.SetValorPremio(20000);
-                    nacertos++;
+                    contAcertadores++;
                 }
                 else if (nacertos == 5)
                 {
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Quina");
                     item.SetValorPremio(1000);
-                    nacertos++;
+                    contAcertadores++;
                 }
                 else if (nacertos == 4)
                 {
                     item.SetSituacao("Ganhou");
                     item.SetTipoPremio("Quadra");
                     item.SetValorPremio(10);
+                    contAcertadores++;
                 }  
             }
-            SetNumeroGanhadores(nacertos); // Atualiza o numero de ganhadores
+            SetNumeroGanhadores(contAcertadores); // Atualiza o numero de ganhadores
             SetSituacao("Sorteado"); // Atualiza situação do Sorteio
 
-            return jogos;
+            return contAcertadores;
         }
     }
 }

@@ -68,6 +68,13 @@ namespace MegaSena.Domain
             if (numeros.Count < 6)
                 throw new Exception("O jogo deve possuir no mínimo 6 Dezenas");
 
+            foreach(var item in numeros)
+            {
+                if((item<1) || (item > 60)){
+                    throw new Exception("Somente permitido número de 1 a 60");
+                }
+            }
+
         }
 
         public void SetSorteio(Sorteio sorteio)

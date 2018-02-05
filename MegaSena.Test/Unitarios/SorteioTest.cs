@@ -38,10 +38,12 @@ namespace Erp.Test.Unitarios
             var sorteio = new Sorteio("Mega Sena da Virada","MegaSena");
             var jogos = new List<Jogo>();
 
+            // a probabilidade de sair os números 1,2,3,4,5,6 e muito grande
             for (int i = 0; i <= 100; i++){
                 jogos.Add(new Jogo(sorteio, sorteio.MegaSena(), "Aposta", new List<Jogador>() { new Jogador("Jogador " + i, "05982100676") }));
             }
-
+            
+            // esses são os ganhadores
             jogos.Add(new Jogo(sorteio, new List<int>() { 1, 2, 3, 4, 5, 55 }, "Aposta", new List<Jogador>() { new Jogador(" Ganhador Quadra 1 ", "05982100676") }));
             jogos.Add(new Jogo(sorteio, new List<int>() { 1, 2, 3, 4, 5, 30 }, "Aposta", new List<Jogador>() { new Jogador(" Ganhador Quadra 2 ", "05982100676") }));
             jogos.Add(new Jogo(sorteio, new List<int>() { 1, 2, 3, 4, 5, 32 }, "Aposta", new List<Jogador>() { new Jogador(" Ganhador Quadra 3 ", "05982100676") }));
@@ -54,9 +56,9 @@ namespace Erp.Test.Unitarios
 
             sorteio.SetJogos(jogos);
 
-            var ganhadores = sorteio.SorteioMegaSena(new List<int>() { 1,2,3,4,5,6 });
+            int ganhadores = sorteio.SorteioMegaSena(new List<int>() { 1,2,3,4,5,6 });
 
-            Assert.IsNotNull(ganhadores);
+            Assert.AreEqual(7,ganhadores);
 
         }
 

@@ -11,5 +11,7 @@ namespace MegaSena.Domain.Interface
 
         void RealizarSorteioMegaSena(int idsorteio);
 
+        //TODO: Realizar Sorteio LotoMania
+
     }
 }
